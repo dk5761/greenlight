@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"time"
 
@@ -39,8 +38,8 @@ func (app *application) createMovieHandler(w http.ResponseWriter, r *http.Reques
 		app.failedValidationResponse(w, r, v.Errors)
 		return
 	}
-	fmt.Fprintf(w, "%+v\n", input)
 
+	err = app.models.Movies.Insert(movie)
 }
 
 func (app *application) showMovieHandler(w http.ResponseWriter, r *http.Request) {
