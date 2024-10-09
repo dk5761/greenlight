@@ -7,7 +7,6 @@ import (
 
 	"greenlight.dk5761.net/internal/data"
 	"greenlight.dk5761.net/internal/validator"
-
 )
 
 func (app *application) createMovieHandler(w http.ResponseWriter, r *http.Request) {
@@ -213,7 +212,7 @@ func (app *application) listMoviesHandler(w http.ResponseWriter, r *http.Request
 		app.serverErrorResponse(w, r, err)
 	}
 
-	err = app.writeJSON(w, http.StatusOK, envelope{"movies": movies, "metadata":metadata}, nil)
+	err = app.writeJSON(w, http.StatusOK, envelope{"movies": movies, "metadata": metadata}, nil)
 	if err != nil {
 		app.serverErrorResponse(w, r, err)
 	}
